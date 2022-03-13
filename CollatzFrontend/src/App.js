@@ -18,7 +18,7 @@ const App = () => {
       <CTA />
       <Footer />
     </div>
-  )
+  );
 }
 
 export default App
