@@ -80,7 +80,7 @@
 .collatz__header-image {
     flex: 1;
     display: flex;
-    justify-content: conter;
+    justify-content: center;
     align-items: center;
 }
 
@@ -89,7 +89,15 @@
     height: 100%;
 }
 
-@media screen and (max-width: 1050px) {
+.collatz__header-slider {
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    width: 100%;
+}
+
+@media screen and (max-width: 1150px) {
     .collatz__header {
         flex-direction: column;
     }
