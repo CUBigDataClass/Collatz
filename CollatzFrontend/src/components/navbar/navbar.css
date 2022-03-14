@@ -1,3 +1,37 @@
+a {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 24px;
+    height: 24px;
+    color: rgb(0, 0, 191);
+    text-decoration: none;
+    }
+    
+    a::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    }
+    
+    a, a::after {
+    transition: all 0.2s linear;
+    }
+    
+    a:hover {
+    color: rgb(255, 255, 255);
+    }
+    
+    a:hover::after {
+    left: 0;
+    width: 100%;
+    }
+
 .collatz__navbar {
     display: flex;
     justify-content: space-between;
@@ -48,10 +82,10 @@
 }
 
 .collatz__navbar-sign button,
-.collatz__navbar-menu container button {
+.collatz__navbar-menu_container button {
     padding: 0.5rem 1.8rem;
     color: #fff;
-    background: #FF4820;
+    background: #ff7050;
     font-family: var( --font-family);
     font-weight: 500;
     font-size: 18px;

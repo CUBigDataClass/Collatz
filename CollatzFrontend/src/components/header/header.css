@@ -16,7 +16,7 @@
 .collatz__header-content h1 {
     font-family:  var(--font-family);
     font-weight: 800;
-    font-size: 62px;
+    font-size: 80px;
     line-height: 75px;
     letter-spacing: -0.04em;
 }
@@ -61,7 +61,7 @@
     flex: 0.6;
     width: 100%;
     min-height: 50px;
-    background: #FF4820;
+    background: #ff7050;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 
@@ -93,11 +93,10 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    
     width: 100%;
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1382px) {
     .collatz__header {
         flex-direction: column;
     }
@@ -107,9 +106,9 @@
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
     .collatz__header h1 {
-        font-size: 48px;
+        font-size: 50px;
         line-height: 60px;
     }
 
@@ -127,7 +126,7 @@
 
 @media screen and (max-width: 490px) {
     .collatz__header h1 {
-        font-size: 40px;
+        font-size: 34px;
         line-height: 60px;
     }
 
