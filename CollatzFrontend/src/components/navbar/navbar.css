@@ -99,7 +99,8 @@
     display: none;
 }
 
-@media screen and (max-width: 1068px) {
+
+@media screen and (max-width: 1050px) {
     .collatz__navbar-links_container {
         display: none;
     }
@@ -108,7 +109,7 @@
     }
 }
 
-@media screen and (max-width: 773px) {
+@media screen and (max-width: 750px) {
     .collatz__navbar {
         padding: 2rem 4rem;
     }

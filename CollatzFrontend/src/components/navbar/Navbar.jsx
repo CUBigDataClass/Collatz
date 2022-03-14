@@ -7,8 +7,7 @@ const Menu = () => (
   <>
     <p><a href="#home">Home</a></p>
     <p><a href="#whatiscollatz">What is Collatz?</a></p>
-    <p><a href="#test1">Test1</a></p>
-    <p><a href="#test2">Test2</a></p>
+    <p><a href="#support">Support</a></p>
   </>
 )
 
@@ -40,7 +39,7 @@ const Navbar = () => {
                 <Menu />
                 <div className="collatz__navbar-menu_container-links-sign">
                 <p>Sign in</p>
-                <button type="button">Sign up</button>
+                <p>Sign up</p>
                 </div>
               </div>
              </div>
