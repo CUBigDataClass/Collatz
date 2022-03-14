@@ -9,14 +9,19 @@ const Header = () => {
         <div className="collatz__header-content">
 
           <h1 className="gradient__text">Go Somewhere</h1>
-          <p>Search to find vacations within your budget. </p>
+          <p>Instantly plan trips within your budget. </p>
+          <p></p>
+
+          <Slider size="large" defaultValue={60} sx={{color: 'lightblue',}} 
+          aria-label="Default" valueLabelDisplay="auto" />
 
           <div className="collatz__header-content_input">
             <input type="Place" placeholder="Your Destination"/>
             <button type="button"> Go </button>
           </div>
 
-          <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+          
+         
 
         </div> 
 
