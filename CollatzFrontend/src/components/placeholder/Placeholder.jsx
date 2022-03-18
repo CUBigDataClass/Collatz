@@ -1,10 +1,10 @@
 import React from 'react';
 import { airplane, hotel, attraction, car } from './import';
-import './brand.css';
+import './placeholder.css';
 
-const Brand = () => {
+const placeholder = () => {
   return (
-    <div className='collatz__brand section__padding'>
+    <div className='collatz__placeholder section__padding'>
       <div>
         <img src={airplane} alt="airplane icon"/>
       </div>
@@ -21,4 +21,4 @@ const Brand = () => {
   )
 }
 
-export default Brand
+export default placeholder
