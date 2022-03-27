@@ -27,8 +27,8 @@ const Navbar = () => {
           </div> 
         </div>
          <div className="collatz__navbar-sign">
-           <p>Sign in</p>
-           <button type="button">Sign up</button>
+             <p><NavLink className="nav-link" to="/signin"><a>Sign in</a></NavLink></p>
+           <button type="button"><NavLink className="nav-link" to="/signup"><a>Sign up</a></NavLink></button>
          </div>
          <div className="collatz__navbar-menu">
            {toggleMenu
@@ -40,7 +40,7 @@ const Navbar = () => {
               <div className="collatz__navbar-menu_container-links"> 
                 <Menu />
                 <div className="collatz__navbar-menu_container-links-sign">
-                <p>Sign in</p>
+                    <p>Sign in</p>
                 <p>Sign up</p>
                 </div>
               </div>

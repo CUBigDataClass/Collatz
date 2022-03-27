@@ -5,3 +5,5 @@ export { default as Header } from '../components/header/Header';
 export { default as Possibility } from './possibility/Possibility';
 export { default as WhatCollatz } from './whatCollatz/WhatCollatz';
 export { default as Support } from './support/Support';
+export { default as Signin } from './signin/Signin';
+export { default as Signup } from './signup/Signup';
