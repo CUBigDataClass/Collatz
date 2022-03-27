@@ -71,5 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Other Question
 
-If you lack node_modules files, try `npm install` to get the newest node_modules packages
+If you lack node_modules files, try `npm install` to get the newest node_modules packages                                          
 For Module not found: Can't resolve 'react-router-dom' question, try `npm i react-router-dom` and `npm i @types/react-router-dom`
