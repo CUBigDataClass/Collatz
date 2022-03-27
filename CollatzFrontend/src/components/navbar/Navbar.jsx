@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import { NavLink } from "react-router-dom";
 import header_logo from '../../assets/header_logo.png';
 import './navbar.css';
 
 const Menu = () => (
   <>
-    <p><a href="#home">Home</a></p>
-    <p><a href="#whatiscollatz">What is Collatz?</a></p>
-    <p><a href="#support">Support</a></p>
+
+    <p><a href="/">Home</a></p>
+    <p><NavLink className="nav-link" to="/whatiscollatz"><a>What is Collatz?</a></NavLink></p>
+    <p><NavLink className="nav-link" to="/support"><a>Support</a></NavLink></p>
   </>
 )
 
