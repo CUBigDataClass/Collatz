@@ -1,27 +1,36 @@
 import React from 'react';
 import './signin.css';
-import {NavLink} from "react-router-dom";
+import { GoogleLogin } from 'react-google-login';
 
-const Signin = () => {
+const clientId = '278153530350-ctpnhc5eaa2s5jsk90u9riajg6u7qfao.apps.googleusercontent.com';
+
+function Signin() {
+    const onSuccess = (res) => {
+        console.log('Login Success: currentUser:', res.profileObj);
+        alert(
+            `Logged in successfully. \nDear ${res.profileObj.name}, Welcome to Collatz!. `
+        );
+
+    };
+
+    const onFailure = (res) => {
+        console.log('Login failed: res:', res);
+        alert(
+            `Failed to login. : ( `
+        );
+    };
+
     return (
-        <div className="Signin">
-            <div className="container">
-                <h2>Welcome to Collatz</h2>
-                <div className="input-box">
-                    <label >Email</label>
-                    <input type = "text"></input>
-                </div>
-                <div className="input-box">
-                    <label >Password</label>
-                    <input type = "password"></input>
-                </div>
-                <div classname="click-btn">
-                    <button ><p><NavLink className="nav-link" to="/"><a>Sign in</a></NavLink></p></button>
-                </div>
-                <div classname="click-btn">
-                    <button ><p><NavLink className="nav-link" to="/signup"><a>I am new here</a></NavLink></p></button>
-                </div>
-            </div>
+        <div>
+            <GoogleLogin
+                clientId={clientId}
+                buttonText="Log in"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={'single_host_origin'}
+                style={{ marginTop: '100px' }}
+                isSignedIn={true}
+            />
         </div>
 
     );

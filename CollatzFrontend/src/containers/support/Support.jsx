@@ -1,6 +1,7 @@
 import React from 'react';
 import './support.css';
 
+
 const Support = () => {
     return (
         <div className="Support">
@@ -11,6 +12,8 @@ const Support = () => {
                         <p>
                             This is support page demo
                         </p>
+
+
                     </div>
                 </div>
             </div>

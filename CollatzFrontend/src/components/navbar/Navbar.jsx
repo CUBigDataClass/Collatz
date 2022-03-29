@@ -3,6 +3,7 @@ import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { NavLink } from "react-router-dom";
 import header_logo from '../../assets/header_logo.png';
 import './navbar.css';
+import {Signin, Signup} from "../../containers";
 
 const Menu = () => (
   <>
@@ -27,8 +28,8 @@ const Navbar = () => {
           </div> 
         </div>
          <div className="collatz__navbar-sign">
-             <p><NavLink className="nav-link" to="/signin"><a>Sign in</a></NavLink></p>
-           <button type="button"><NavLink className="nav-link" to="/signup"><a>Sign up</a></NavLink></button>
+             <Signin />
+             <Signup />
          </div>
          <div className="collatz__navbar-menu">
            {toggleMenu
