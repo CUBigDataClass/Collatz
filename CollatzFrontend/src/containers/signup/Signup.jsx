@@ -15,6 +15,11 @@ function Signup() {
         <div>
             <GoogleLogout
                 clientId={clientId}
+                render = {renderProbs => (
+                    <button onClick={renderProbs.onClick} disable={renderProbs.disable}>
+                        Log out
+                    </button>
+                )}
                 buttonText="Log out"
                 onLogoutSuccess={onSuccess}
             ></GoogleLogout>

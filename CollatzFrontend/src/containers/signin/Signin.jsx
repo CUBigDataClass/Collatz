@@ -24,6 +24,12 @@ function Signin() {
         <div>
             <GoogleLogin
                 clientId={clientId}
+                render = {renderProbs => (
+                        <button onClick={renderProbs.onClick} disable={renderProbs.disable}>
+                            Log in
+                        </button>
+
+                    )}
                 buttonText="Log in"
                 onSuccess={onSuccess}
                 onFailure={onFailure}

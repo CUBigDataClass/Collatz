@@ -27,10 +27,12 @@ const Navbar = () => {
             <Menu />
           </div> 
         </div>
-         <div className="collatz__navbar-sign">
+         <div className="collatz__navbar-signin">
              <Signin />
-             <Signup />
          </div>
+        <div className="collatz__navbar-signout">
+            <Signup />
+        </div>
          <div className="collatz__navbar-menu">
            {toggleMenu
             ? <RiCloseLine color="#fff" size={27} onClick={()=> setToggleMenu(false)}/>
