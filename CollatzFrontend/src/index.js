@@ -7,15 +7,13 @@ import {Signin, Signup, Support, WhatCollatz} from "./containers";
 
 
 ReactDOM.render(
-    <Router>
-                 <Routes>
-                     <Route path="/" element={<App />} />
-                     <Route path="/whatiscollatz" element={<WhatCollatz />} />
-                     <Route path="/support" element={<Support />} />
-                     <Route path="/signin" element={<Signin />} />
-                     <Route path="/signup" element={<Signup />} />
-
-
-                 </Routes>
-             </Router>,
-    document.getElementById('root'));
+        <Router>
+            <Routes>
+                <Route path="/" element={<App />} />
+                <Route path="/whatiscollatz" element={<WhatCollatz />} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+            </Routes>
+        </Router>,
+        document.getElementById('root')
+    );

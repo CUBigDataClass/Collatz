@@ -7,10 +7,8 @@ import {Signin, Signup} from "../../containers";
 
 const Menu = () => (
   <>
-
     <p><a href="/">Home</a></p>
     <p><NavLink className="nav-link" to="/whatiscollatz"><a>What is Collatz?</a></NavLink></p>
-    <p><NavLink className="nav-link" to="/support"><a>Support</a></NavLink></p>
   </>
 )
 

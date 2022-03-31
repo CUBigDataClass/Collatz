@@ -8,7 +8,7 @@ function Signin() {
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
         alert(
-            `Logged in successfully. \nDear ${res.profileObj.name}, Welcome to Collatz!. `
+            `Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `
         );
 
     };
@@ -16,7 +16,7 @@ function Signin() {
     const onFailure = (res) => {
         console.log('Login failed: res:', res);
         alert(
-            `Failed to login. : ( `
+            `Failed to login. :(`
         );
     };
 
