@@ -17,8 +17,7 @@ const WhatCollatz = () => {
                     <h1 >What is Collatz</h1>
                     <p>
                         Collatz is a web app for planning travel on a set budget. 
-                        Users can search for a desired travel location with key words, and recieve flights, hotels, attractions and travel options in that area that fit within their budget.
-                        Try it out for yourself, and if you like a trip, save it to your user profile to view it at a later date!
+                        Collatz finds flights, hotels, attractions and transport at your travel destination within your set budget.
                     </p>
                 </div>
             </div>
