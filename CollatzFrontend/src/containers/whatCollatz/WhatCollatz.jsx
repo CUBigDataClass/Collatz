@@ -1,9 +1,7 @@
 import React from 'react';
 import './whatCollatz.css';
-import header_logo from "../../assets/header_logo.png";
 import { Navbar } from '../../components';
 import lowPolyEarth from "../../assets/lowPolyEarth.png";
-import {NavLink} from "react-router-dom";
 
 const WhatCollatz = () => {
   return (
@@ -17,7 +15,7 @@ const WhatCollatz = () => {
                     <h1 >What is Collatz</h1>
                     <p>
                         Collatz is a web app for planning travel on a set budget. 
-                        Collatz finds flights, hotels, attractions and transport at your travel destination within your set budget.
+                        Collatz finds flights, hotels, attractions and transport at your travel destination within your set budget. The front of this project is made with React.js and Python, using Google APIs.
                     </p>
                 </div>
             </div>
