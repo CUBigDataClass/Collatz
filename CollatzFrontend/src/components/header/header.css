@@ -1,6 +1,7 @@
 .collatz__header {
     display: flex;
     flex-direction: row;
+    padding: 4rem 6rem;
 }
 
 .collatz__header-content {

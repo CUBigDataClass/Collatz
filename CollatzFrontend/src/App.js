@@ -12,7 +12,6 @@ const App = () => {
         <Header />
       </div>
       <Report />
-      <Placeholder />
       <CTA />
       <Footer />
     </div>
