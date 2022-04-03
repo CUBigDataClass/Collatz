@@ -2,19 +2,18 @@ import React from 'react';
 import './article.css';
 import {}  from './import';
 
-const Article = ( { imgUrl, title, subtext } ) => {
+const Article = ( { imgUrl, title, locationTitle } ) => {
   return (
-    <div className="collatz__report-container_body">
-      <div className="collatz__report-container_body-image">
-        <img src={imgUrl} alt="body image" />
+    <div className="collatz__report-container_article">
+      <div className="collatz__report-container_article-image">
+        <img src={imgUrl} alt="article image" />
       </div>
-        Article
-        <h2>
-          title
-        </h2>
-        <p>
-          subtext
-        </p>
+      <div className="collatz__report-container_article-content">
+        <div>
+          <p> {title} </p>
+          <h3> {locationTitle} </h3>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Article } from '../../components';
+import { locationImage, hotelImage, flightImage, rentalImage, attractionImage } from './imports';
 import './report.css';
 
 const Report = () => {
@@ -12,13 +13,13 @@ const Report = () => {
         </div>
         <div className="collatz__report-container">
           <div className="collatz__report-container_1">
-            <Article />
+            <Article imgUrl={locationImage} title="Location" locationTitle={"Location Name"}/>
           </div>
           <div className="collatz__report-container_2">
-            <Article />
-            <Article />
-            <Article />
-            <Article />
+            <Article imgUrl={hotelImage} title="Hotels" locationTitle={"Hotel Name"}/>
+            <Article imgUrl={attractionImage} title="Attractions" locationTitle={"Attraction Name"}/>
+            <Article imgUrl={flightImage} title="Flights" locationTitle={"Flight Name"}/>
+            <Article imgUrl={rentalImage} title="Rentals" locationTitle={"Rental Name"}/>
           </div>
         </div>
     </div>

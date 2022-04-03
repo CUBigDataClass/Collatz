@@ -1,13 +1,13 @@
-import locationImage from '../../assets/locationImage';
-import hotelImage from '../../assets/hotelImage';
-import flightImage from '../../assets/flightImage';
-import attractionImage from '../../assets/attractionImage';
-import rentalImage from '../../assets/rentalnImage';
+import locationImage from '../../assets/locationImage.png';
+import hotelImage from '../../assets/hotelImage.png';
+import attractionImage from '../../assets/attractionImage.png';
+import flightImage from '../../assets/flightImage.png';
+import rentalImage from '../../assets/rentalImage.png';
 
 export {
     locationImage,
     hotelImage,
-    flightImage,
     attractionImage,
+    flightImage,
     rentalImage,
 }

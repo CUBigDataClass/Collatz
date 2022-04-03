@@ -59,7 +59,7 @@ const Header = () => {
           </div>
         </div> 
         <div className="collatz__header-image"
-         style={{ transform: `translateY(${(offsetY * 0.2)}px)`}}
+         style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
          >
           <img src={lowPolyEarth} alt="lowPolyEarth" />
         </div>
