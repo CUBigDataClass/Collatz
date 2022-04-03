@@ -1,10 +1,11 @@
-WhatCollatz {
+.WhatCollatz {
     margin: 0;
     height: 100%;
     weight: 100%;
     box-sizing: border-box;
     padding: 0;
     scroll-behavior: smooth;
+    
 }
 
 p {
@@ -12,7 +13,6 @@ p {
     font-size: 20px;
     line-height: 27px;
     color: var(--color-text);
-
     margin-top: 1.5rem;
 }
 
@@ -26,4 +26,16 @@ h1 {
     background-clip: text;
     -webkit-background-clop: text;
     -webkit-text-fill-color: transparent;
+}
+
+.collatz__about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collatz__about-image img {
+    width: 50%;
+    height: 50%;
 }
