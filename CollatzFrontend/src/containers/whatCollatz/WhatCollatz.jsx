@@ -19,6 +19,7 @@ const WhatCollatz = () => {
                     </p>
                 </div>
             </div>
+
             <div className="collatz__about-image">
                 <img src={lowPolyEarth} alt="lowPolyEarth" />
             </div>
