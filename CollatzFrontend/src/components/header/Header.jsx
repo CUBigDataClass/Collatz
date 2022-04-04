@@ -32,38 +32,40 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="collatz__header section__padding" id="home">
-        <div className="collatz__header-content">
-          <h1 className="gradient__text">Go Somewhere New</h1>
-          <p>Instantly plan trips within a set budget. </p>
-          <div className="collatz__header-slider">
-            <Typography id="budget-slider" >
-                Budget: {valueLabelFormat(calculateValue(value))}
-            </Typography>
-            <Slider
-              size='medium'
-              value={value}
-              min={10}
-              step={1}
-              max={15000}
+    <div className='collatz__header-gradient'>
+      <div className="collatz__header section__padding" id="home">
+          <div className="collatz__header-content">
+            <h1 className="gradient__text">Go Somewhere New</h1>
+            <p>Instantly plan trips within a set budget. </p>
+            <div className="collatz__header-slider">
+              <Typography id="budget-slider" >
+                  Budget: {valueLabelFormat(calculateValue(value))}
+              </Typography>
+              <Slider
+                size='medium'
+                value={value}
+                min={10}
+                step={1}
+                max={15000}
 
-              getAriaValueText={valueLabelFormat}
-              valueLabelFormat={valueLabelFormat}
-              onChange={handleChange}
-              aria-labelledby="budget-slider"
-            />
+                getAriaValueText={valueLabelFormat}
+                valueLabelFormat={valueLabelFormat}
+                onChange={handleChange}
+                aria-labelledby="budget-slider"
+              />
+            </div>
+            <div className="collatz__header-content_input">
+              <input type="Place" placeholder="Your Destination"/>
+              <button type="button"> Go </button>
+            </div>
+          </div> 
+          <div className="collatz__header-image"
+          style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
+          >
+            <img src={lowPolyEarth} alt="lowPolyEarth" />
           </div>
-          <div className="collatz__header-content_input">
-            <input type="Place" placeholder="Your Destination"/>
-            <button type="button"> Go </button>
-          </div>
-        </div> 
-        <div className="collatz__header-image"
-         style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
-         >
-          <img src={lowPolyEarth} alt="lowPolyEarth" />
-        </div>
-    </div>
+      </div>
+      </div>
   )
 }
 
