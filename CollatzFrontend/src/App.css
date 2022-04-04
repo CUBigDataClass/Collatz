@@ -14,6 +14,16 @@ a {
   text-decoration: none;
 }
 
+.footer-gradient::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(to top, var(--color-bg), transparent);
+  z-index: 0;
+}
+
 .gradient__bg {
   min-height: 1100px;
     /* ff 3.6+ */
