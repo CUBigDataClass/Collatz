@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './signin.css';
 import { GoogleLogin } from 'react-google-login';
+
 
 const clientId = '278153530350-ctpnhc5eaa2s5jsk90u9riajg6u7qfao.apps.googleusercontent.com';
 
 function Signin() {
+    const [login,logstate] = useState(false);
+    const Logedin = () => logstate(true);
+    const notLogedin = () => logstate(false);
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
-        alert(
-            `Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `
-        );
+        if (!login){
+            alert(`Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `);
+            Logedin();
+        }
 
     };
 
@@ -18,9 +23,12 @@ function Signin() {
         alert(
             `Failed to login. :(`
         );
+        notLogedin();
+
     };
 
     return (
+
         <div>
             <GoogleLogin
                 clientId={clientId}
@@ -38,7 +46,6 @@ function Signin() {
                 isSignedIn={true}
             />
         </div>
-
     );
 }
 

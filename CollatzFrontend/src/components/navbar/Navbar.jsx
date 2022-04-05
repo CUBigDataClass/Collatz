@@ -14,7 +14,7 @@ const Menu = () => (
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-
+  //const [login,logstate] = useState(false);
   return (
     <div className="collatz__navbar">
       <div className="collatz__navbar-links">
