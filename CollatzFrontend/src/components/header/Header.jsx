@@ -54,7 +54,7 @@ const Header = () => {
             />
           </div>
           <div className="collatz__header-content_input">
-            <input type="Place" placeholder="Your Destination"/>
+            <input type="text" placeholder="Your Destination"/>
             <button type="button" > Go </button>
           </div>
         </div> 

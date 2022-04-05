@@ -6,15 +6,25 @@
 .collatz__report-heading {
     width: 100%;
     text-align: left;
-
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.collatz__report-heading h1 {
+.collatz__report-heading {
     font-family: var(--font-family);
     font-weight: 800;
     font-size: 62px;
     line-height: 75px;
+    letter-spacing:  -0.05em;
+}
+
+.collatz__report-subheading {
+    color: white;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 100px;
     letter-spacing:  -0.04em;
 }
 
