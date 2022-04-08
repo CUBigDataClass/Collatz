@@ -8,25 +8,47 @@ import math
 from geopy.geocoders import Nominatim
 from flask import Flask
 from google.cloud import firestore
+from fastapi import FastAPI
+from typing import Optional
 
-db = firestore.Client(project='festive-shield-346321')
+app = FastAPI()
+
+@app.get("/users/hotels/{user_id}")
+async def read_hotels(user_id: str, starting_loc, destination, start_date, end_date, adult_count, child_count):
+    a_count = int(adult_count)
+    c_count = int(child_count)
+    hotels = get_data(user_id, starting_loc, destination, start_date, end_date, a_count, c_count)
+    return hotels
+
+# @app.get("/users/trip/{user_id}")
+# def update_info(user_id: str):
+#     return {"user_id": user_id}
+
+# @app.get("/my-first-api")
+
+# def hello(name = None):
+
+#     if name is None:
+#         text = 'Hello!'
+
+#     else:
+#         text = 'Hello ' + name + '!'
+
+#     return text
+# import docker
+
+# client = docker.from_env()
+# for container in client.containers.list():
+#   print(container.id)
 
 
-doc_ref = db.collection('users').document('alovelace')
 
-doc_ref.set({
-    'first': 'ITasdkljfg;laksjdg;l',
-    'last': 'Lovelace',
-    'born': 1815
-})
-
+# doc_ref.set({"Name":"Jeff"})
 # users_ref = db.collection(u'users')
 # docs = users_ref.stream()
 
 # for doc in docs:
 #     print(f'{doc.id} => {doc.to_dict()}')
-
-app = Flask(__name__)
 
 def getBestAirports(location, airports_df, nbest=3):
     geocoder = Nominatim(user_agent="GetLoc")
@@ -53,8 +75,11 @@ def getBestAirports(location, airports_df, nbest=3):
 
     return best_airports, city, state
 
-@app.route("/")
-def hello_world():
+def get_data(user_id, starting_loc, destination, start_date, end_date, adult_count=1, child_count=0):
+
+    db = firestore.Client(project='festive-shield-346321')
+    doc_ref = db.collection('hotels').document(user_id)
+
     # Pure data
     airports = airportsdata.load()
 
@@ -66,7 +91,7 @@ def hello_world():
             if airports[key]["iata"] != "":
                 # print(airports[key])
                 temp_df = pd.DataFrame([[airports[key]["iata"], airports[key]["lat"], airports[key]["lon"]]], columns=["code", "lat", "long"])
-                airports_df = airports_df.append(temp_df, ignore_index=True)
+                airports_df = pd.concat([airports_df, temp_df], ignore_index=True)
 
     # starting_loc=input("Where are you leaving from? ")
     # destination=input("Where would you like to visit? ")
@@ -75,12 +100,12 @@ def hello_world():
     # adult_count=int(input("How many adults will be coming on this trip? "))
     # child_count=int(input("How many children will be coming on this trip? "))
 
-    starting_loc="Boulder"
-    destination="San Francisco"
-    start_date="2022-06-10"
-    end_date="2022-06-17"
-    adult_count=1
-    child_count=0
+    # starting_loc="Boulder"
+    # destination="San Francisco"
+    # start_date="2022-06-10"
+    # end_date="2022-06-17"
+    # adult_count=1
+    # child_count=0
 
     home_best_airports, home_city, home_state = getBestAirports(starting_loc, airports_df)
     dest_best_airports, dest_city, dest_state = getBestAirports(destination, airports_df)
@@ -89,7 +114,7 @@ def hello_world():
     home_airport_code = home_best_airports.loc[0]["code"]
     dest_airport_code = dest_best_airports.loc[0]["code"]
 
-    key = "INSERT RAPID API KEY HERE..."
+    key = "774b07103bmsh7f4b47f00895eafp1ff206jsn58ad64733028"
 
     url = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations"
 
@@ -130,8 +155,12 @@ def hello_world():
 
 
     #name = os.environ.get("NAME", "World")
+
+    doc_ref.set(hotels_for_city)
+
     return hotels_for_city
 
+# if __name__ == "__main__":
+#     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8090)))
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8090)))
+# get_data()

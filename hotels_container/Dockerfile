@@ -21,12 +21,14 @@ COPY . /app
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
+EXPOSE 8000
+
 # Added to run bash script
 #RUN bash -c 'export GOOGLE_APPLICATION_CREDENTIALS=/Users/aarondavis/Downloads/festive-shield-346321-b42a31b51764.json'
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["gunicorn", "--bind", "0.0.0.0:8090", "main:app"]
-
+#CMD ["uvicorn", "--bind", "0.0.0.0:8090", "main:app", "--reload"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
 #CMD ["sh", "startup.sh"]
 #RUN ./startup.sh

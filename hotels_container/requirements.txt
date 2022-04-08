@@ -7,4 +7,6 @@ geopy==2.2.0
 google-cloud-firestore==2.4.0
 pandas==1.4.2
 numpy==1.22.3
+fastapi==0.75.1
+uvicorn==0.17.6
 
