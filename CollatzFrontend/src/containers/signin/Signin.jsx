@@ -11,6 +11,7 @@ function Signin() {
     const notLogedin = () => logstate(false);
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
+        login=true;
         if (!login){
             alert(`Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `);
             Logedin();
