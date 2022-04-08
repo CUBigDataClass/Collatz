@@ -7,6 +7,24 @@ import numpy as np
 import math
 from geopy.geocoders import Nominatim
 from flask import Flask
+from google.cloud import firestore
+
+db = firestore.Client(project='festive-shield-346321')
+
+
+doc_ref = db.collection('users').document('alovelace')
+
+doc_ref.set({
+    'first': 'ITasdkljfg;laksjdg;l',
+    'last': 'Lovelace',
+    'born': 1815
+})
+
+# users_ref = db.collection(u'users')
+# docs = users_ref.stream()
+
+# for doc in docs:
+#     print(f'{doc.id} => {doc.to_dict()}')
 
 app = Flask(__name__)
 
