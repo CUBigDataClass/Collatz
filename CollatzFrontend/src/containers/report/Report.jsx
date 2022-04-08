@@ -16,7 +16,7 @@ const Report = () => {
         </div>
         <div className="collatz__report-container">
           <div className="collatz__report-container_1">
-            <Article imgUrl={locationImage} title="Location" locationTitle={"Location Name"}/>
+            <Article imgUrl={locationImage} title="Attraction" locationTitle={"Attraction Title"}/>
           </div>
           <div className="collatz__report-container_2">
             <Article imgUrl={hotelImage} title="Hotels" locationTitle={"Hotel Name"}/>

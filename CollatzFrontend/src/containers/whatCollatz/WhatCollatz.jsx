@@ -26,7 +26,7 @@ const WhatCollatz = () => {
                         <h1 >What is Collatz</h1>
                         <p>
                             Collatz is a web app for planning travel on a set budget.
-                            Collatz finds flights, hotels, attractions and transport at your travel destination within your set spending limit. The front end of this project is built with React.js and the back end is built in Python with the help of Google APIs.
+                            Collatz finds flights, hotels, attractions and transport at your travel destination within your set spending limit. The front end of this project is built with React.js and the back end is built in Python with the help of many APIs.
                         </p>
                     </div>
                 </div>
@@ -35,9 +35,6 @@ const WhatCollatz = () => {
                      style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
                      />
                 </div>
-            </div>
-            <div className="collatz__about-image">
-                <img src={lowPolyEarth} alt="lowPolyEarth" />
             </div>
         </div>
     </div>

@@ -78,6 +78,25 @@
     padding: 0 1rem;
 }
 
+
+.collatz__header-content_date_input {
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: row;
+}
+
+.collatz__header-content_date_input_container {
+    margin-right: 1rem;
+}
+
+.collatz__datePicker{
+    
+    background: var(--color-footer);
+    border-top: none;
+    color: white;
+    
+}
+
 .collatz__header-image {
     flex: 1;
     display: flex;
