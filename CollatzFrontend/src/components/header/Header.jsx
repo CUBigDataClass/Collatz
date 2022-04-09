@@ -3,11 +3,13 @@ import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography } from '@mui/material';
 import DatePicker from 'react-datepicker';
+// import Select from "react-select";
 
 const Header = () => {
   
   /* Slider value */
   const [value, setValue] = React.useState(5000);
+
 
   function valueLabelFormat(value) {
     const units = ['$'];
@@ -22,10 +24,20 @@ const Header = () => {
   };
 
   /*Leave date value */
-  
+  const Leavedate = () => {
+    const [LeaveDate, setLeaveDate] = useState(new Date());
+    return (
+        <DatePicker selected={LeaveDate} onChange={(date:Date) => setLeaveDate(date)} />
+    );
+  };
 
   /*Return date value */
-
+  const Returndate = () => {
+    const [ReturnDate, setReturnDate] = useState(new Date());
+    return (
+        <DatePicker selected={ReturnDate} onChange={(date:Date) => setReturnDate(date)} />
+    );
+  };
 
   /*Scrolling parallax */
   const [offsetY, setOffsetY] = useState(0); /*offsetY = 0; # pixels scrolled from top of page to bottom*/
@@ -62,18 +74,18 @@ const Header = () => {
             <div className="collatz__header-content_date_input_container">
               <p>Leave</p>
               <div className='collatz__datePicker'>
-              <DatePicker />
+              <Leavedate />
               </div>
             </div>
             <div className="collatz__header-content_date_input_container">
               <p>Return</p>
               <div className='collatz__datePicker'>
-                <DatePicker/>
+                <Returndate/>
               </div>
             </div>
               <div className="collatz__header-content_date_input_container">
               <p># of Travelers</p>
-              <input type="text" placeholder=""/>
+              <input type="number" placeholder=""/>
               <div className='collatz__travelerCountPicker'>
               </div>
             </div>
