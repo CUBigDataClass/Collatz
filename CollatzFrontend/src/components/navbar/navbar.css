@@ -81,11 +81,24 @@ a {
     cursor: pointer;
 }
 
-.collatz__navbar-sign button,
-.collatz__navbar-menu_container button {
+.collatz__navbar-signout button{
     padding: 0.5rem 1.8rem;
     color: #fff;
     background: #ff7050;
+    font-family: var( --font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 3px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.collatz__navbar-signin button{
+    padding: 0.5rem 1.8rem;
+    color: #fff;
+    background: transparent;
     font-family: var( --font-family);
     font-weight: 500;
     font-size: 18px;
@@ -140,6 +153,19 @@ a {
     }
     .collatz__navbar-menu {
         display: flex;
+    }
+
+    .collatz__navbar-links_logo img {
+        width: 150px;
+        height: 36px;
+    }
+
+    .collatz__navbar-signout button{
+        display:none;
+    }
+    
+    .collatz__navbar-signin button{
+        display:none;
     }
 }
 

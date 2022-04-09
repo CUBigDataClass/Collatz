@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography, Grid } from '@mui/material';
@@ -21,6 +21,15 @@ const Header = () => {
       setValue(newValue);
     }
   };
+
+  /*Scrolling parallax */
+  const [offsetY, setOffsetY] = useState(0); /*offsetY = 0; # pixels scrolled from top of page to bottom*/
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+  
+  useEffect(() => {
+    window.addEventListener("scroll",handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="collatz__header section__padding" id="home">
@@ -45,11 +54,13 @@ const Header = () => {
             />
           </div>
           <div className="collatz__header-content_input">
-            <input type="Place" placeholder="Your Destination"/>
-            <button type="button"> Go </button>
+            <input type="text" placeholder="Your Destination"/>
+            <button type="button" > Go </button>
           </div>
         </div> 
-        <div className="collatz__header-image">
+        <div className="collatz__header-image"
+        style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
+        >
           <img src={lowPolyEarth} alt="lowPolyEarth" />
         </div>
     </div>
