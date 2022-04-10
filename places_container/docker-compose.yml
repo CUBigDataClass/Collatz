@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  flightscontainer:
-    image: flightscontainer
+  placescontainer:
+    image: placescontainer
     build:
       context: .
       dockerfile: ./Dockerfile
