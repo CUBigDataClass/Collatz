@@ -13,12 +13,9 @@ from typing import Optional
 
 app = FastAPI()
 
-@app.get("/users/hotels/{user_id}")
-async def read_hotels(user_id: str, starting_loc, destination, start_date, end_date, adult_count, child_count):
-    a_count = int(adult_count)
-    c_count = int(child_count)
-    hotels = get_data(user_id, starting_loc, destination, start_date, end_date, a_count, c_count)
-    return hotels
+
+
+
 
 def getBestAirports(location, airports_df, nbest=3):
     geocoder = Nominatim(user_agent="GetLoc")
@@ -48,7 +45,7 @@ def getBestAirports(location, airports_df, nbest=3):
 def get_data(user_id, starting_loc, destination, start_date, end_date, adult_count=1, child_count=0):
 
     db = firestore.Client(project='festive-shield-346321')
-    doc_ref = db.collection('hotels').document(user_id)
+    doc_ref = db.collection('flights').document(user_id)
 
     # Pure data
     airports = airportsdata.load()
@@ -84,30 +81,17 @@ def get_data(user_id, starting_loc, destination, start_date, end_date, adult_cou
     home_airport_code = home_best_airports.loc[0]["code"]
     dest_airport_code = dest_best_airports.loc[0]["code"]
 
-    key = "774b07103bmsh7f4b47f00895eafp1ff206jsn58ad64733028"
+    key = "INSERT API KEY HERE..."
 
-    url = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations"
+    url = "https://priceline-com-provider.p.rapidapi.com/v2/flight/roundTrip"
 
-    querystring = {"search_type":"HOTEL","name":f"{dest_city}, {dest_state}"}
+    # UNCOMMENT FOR A WORKING EXAMPLE
+    # home_airport_code = "DEN"
+    # dest_airport_code = "JFK"
 
-    headers = {
-        'x-rapidapi-host': "priceline-com-provider.p.rapidapi.com",
-        'x-rapidapi-key': key
-        }
+    #print(dest_airport_code)
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
-
-    dictionary = json.loads(response.text)
-    city_id = dictionary[0]["cityID"]
-
-    location_id = city_id
-    checkin = start_date
-    checkout = end_date
-    num_rooms = str(math.ceil(adult_count/2))
-
-    url = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/search"
-
-    querystring = {"date_checkin":checkin,"location_id":location_id,"date_checkout":checkout,"sort_order":"PRICE","amenities_ids":"FINTRNT,FBRKFST","rooms_number":num_rooms,"star_rating_ids":"3.0,3.5,4.0,4.5,5.0"}
+    querystring = {"departure_date":f"{start_date},{end_date}","adults":f"{adult_count}","sid":"iSiX639","origin_airport_code":f"{home_airport_code},{dest_airport_code}","destination_airport_code":f"{dest_airport_code},{home_airport_code}"}
 
     headers = {
         'x-rapidapi-host': "priceline-com-provider.p.rapidapi.com",
@@ -116,7 +100,25 @@ def get_data(user_id, starting_loc, destination, start_date, end_date, adult_cou
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    hotels_for_city = json.loads(response.text)
+    response = json.loads(response.text)
+
+    for key in response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["priced_itinerary"].keys():
+        if "marriage_group" in response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["priced_itinerary"][key].keys():
+            del response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["priced_itinerary"][key]["marriage_group"]
+
+
+    keys = response["getAirFlightRoundTrip"]["results"].keys()
+
+    # print("SDKLhg:LHKG:")
+
+    print(response["getAirFlightRoundTrip"]["results"]["air_search_rsp"].keys())
+
+    for i in list(response["getAirFlightRoundTrip"]["results"]):
+        if i != "air_search_rsp":
+            response["getAirFlightRoundTrip"]["results"].pop(i)
+
+
+    #[response["getAirFlightRoundTrip"]["results"].pop(key) for key in list(keys) if key != "air_search_rsp"]
 
     # with open("drive/MyDrive/hotels.json", "w") as file:
     # 	json.dump(hotels_for_city, file)
@@ -126,11 +128,13 @@ def get_data(user_id, starting_loc, destination, start_date, end_date, adult_cou
 
     #name = os.environ.get("NAME", "World")
 
-    doc_ref.set(hotels_for_city)
+    doc_ref.set(response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["total_trip_summary"])
 
-    return hotels_for_city
+    return response
 
-# if __name__ == "__main__":
-#     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8090)))
-
-# get_data()
+@app.get("/users/flights/{user_id}")
+def read_flights(user_id: str, starting_loc, destination, start_date, end_date, adult_count, child_count):
+    a_count = int(adult_count)
+    c_count = int(child_count)
+    flights = get_data(user_id, starting_loc, destination, start_date, end_date, a_count, c_count)
+    return flights
