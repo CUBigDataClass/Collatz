@@ -11,8 +11,8 @@ from google.cloud import firestore
 from fastapi import FastAPI
 from typing import Optional
 
-from google.auth import compute_engine
-credentials = compute_engine.Credentials()
+# from google.auth import compute_engine
+# credentials = compute_engine.Credentials()
 
 app = FastAPI()
 
@@ -50,7 +50,7 @@ def getBestAirports(location, airports_df, nbest=3):
 
 def get_data(user_id, starting_loc, destination, start_date, end_date, adult_count=1, child_count=0):
 
-    db = firestore.Client(credentials=credentials, project='festive-shield-346321')
+    db = firestore.Client(project='festive-shield-346321')
     doc_ref = db.collection('hotels').document(user_id)
 
     # Pure data
