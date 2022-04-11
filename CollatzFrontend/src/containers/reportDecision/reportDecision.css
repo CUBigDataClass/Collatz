@@ -44,4 +44,9 @@
     border: none;
     background: transparent;
     color: black;
+    cursor: pointer;
+}
+
+.collatz__reportDecision-btn button:hover{
+    transform: scale(0.8);
 }
