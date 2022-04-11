@@ -27,7 +27,7 @@ const Header = () => {
   const Leavedate = () => {
     const [LeaveDate, setLeaveDate] = useState(new Date());
     return (
-        <DatePicker selected={LeaveDate} onChange={(date:Date) => setLeaveDate(date)} />
+        <DatePicker selected={LeaveDate} onChange={(date) => setLeaveDate(date)} />
     );
   };
 
@@ -35,7 +35,7 @@ const Header = () => {
   const Returndate = () => {
     const [ReturnDate, setReturnDate] = useState(new Date());
     return (
-        <DatePicker selected={ReturnDate} onChange={(date:Date) => setReturnDate(date)} />
+        <DatePicker selected={ReturnDate} onChange={(date) => setReturnDate(date)} />
     );
   };
 
@@ -80,12 +80,12 @@ const Header = () => {
             <div className="collatz__header-content_date_input_container">
               <p>Return</p>
               <div className='collatz__datePicker'>
-                <Returndate/>
+                <Returndate />
               </div>
             </div>
               <div className="collatz__header-content_date_input_container">
               <p># of Travelers</p>
-              <input type="number" placeholder=""/>
+              <input type="number" min = "1"/>
               <div className='collatz__travelerCountPicker'>
               </div>
             </div>
@@ -97,7 +97,7 @@ const Header = () => {
           
         </div> 
         <div className="collatz__header-image"
-        style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
+        style={{ transform: `translateY(${(offsetY * 0.1)}px)`}}
         >
           <img src={lowPolyEarth} alt="lowPolyEarth" />
         </div>

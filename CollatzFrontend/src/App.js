@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Footer, Report, Header } from './containers';
+import { Footer, Report, Header, ReportDecision } from './containers';
 import { Navbar } from './components';
 import './App.css'; 
 
@@ -13,6 +13,7 @@ const App = () => {
           <Header />
         </div>
         <Report />
+        <ReportDecision />
         <Footer />
         </div>
       </div>
