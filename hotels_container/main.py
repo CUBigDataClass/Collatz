@@ -11,6 +11,9 @@ from google.cloud import firestore
 from fastapi import FastAPI
 from typing import Optional
 
+from google.auth import compute_engine
+credentials = compute_engine.Credentials()
+
 app = FastAPI()
 
 @app.get("/users/hotels/{user_id}")
@@ -47,7 +50,7 @@ def getBestAirports(location, airports_df, nbest=3):
 
 def get_data(user_id, starting_loc, destination, start_date, end_date, adult_count=1, child_count=0):
 
-    db = firestore.Client(project='festive-shield-346321')
+    db = firestore.Client(credentials=credentials, project='festive-shield-346321')
     doc_ref = db.collection('hotels').document(user_id)
 
     # Pure data
@@ -84,7 +87,7 @@ def get_data(user_id, starting_loc, destination, start_date, end_date, adult_cou
     home_airport_code = home_best_airports.loc[0]["code"]
     dest_airport_code = dest_best_airports.loc[0]["code"]
 
-    key = "INSERT API KEY HERE..."
+    key = "INSERT RAPID API KEY HERE..."
 
     url = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations"
 
