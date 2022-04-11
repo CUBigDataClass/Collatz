@@ -5,6 +5,11 @@
     box-sizing: border-box;
     padding: 0;
     scroll-behavior: smooth;
+    
+}
+
+.WhatCollatz .gradient__bg {
+    min-height: 1300px;
 }
 
 p {
