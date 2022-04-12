@@ -13,7 +13,7 @@ app = FastAPI()
 
 @app.get("/users/places/{user_id}")
 async def read_places(user_id: str, starting_loc, destination, start_date, end_date, adult_count, child_count):
-    key="INSERT GOOGLE PLACES API KEY HERE"
+    key=""
 
     db = firestore.Client(project='festive-shield-346321')
 
