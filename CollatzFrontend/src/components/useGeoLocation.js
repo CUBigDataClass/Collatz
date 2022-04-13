@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaSketch } from 'react-icons/fa'
 
 const useGeoLocation = () => {
-    {/*Create a const to store whether geolocation has been loaded and coordinates (latitudate, longitude) */}
+    /*Create a const to store whether geolocation has been loaded and coordinates (latitudate, longitude) */
     const [location, setLocation] = useState({ 
         loaded: false,
         coordinates: {lat: "", lng: ""} 

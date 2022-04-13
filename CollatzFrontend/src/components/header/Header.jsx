@@ -8,11 +8,11 @@ import useGeoLocation from '../useGeoLocation';
 
 const Header = () => {
 
+  /* User Location */
   const location = useGeoLocation();
   
-  /* Slider value */
+  /* Budget Slider Value */
   const [value, setValue] = React.useState(5000);
-
 
   function valueLabelFormat(value) {
     const units = ['$'];
