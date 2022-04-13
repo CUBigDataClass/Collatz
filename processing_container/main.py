@@ -32,7 +32,7 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
     start = time.time()
 
     count = 0
-    while (hotel_data is None) and (count < 10):
+    while (hotel_data is None) and (count < 20):
         hotel_ref = db.collection(u'hotels').document(user_id)
         hotel_data = hotel_ref.get().to_dict()
         count += 1
@@ -149,9 +149,9 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
 
     print(end - start)
 
-    import json
-    with open('example_recs.json', 'a',encoding="utf-8") as file:
-        json.dump(options_dict, file)
+    # import json
+    # with open('example_recs.json', 'a',encoding="utf-8") as file:
+    #     json.dump(options_dict, file)
 
     #print(type(restaurant_data))   
     # print(restaurant_data["results"][0])
