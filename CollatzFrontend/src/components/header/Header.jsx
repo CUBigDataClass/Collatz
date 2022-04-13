@@ -3,9 +3,12 @@ import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography } from '@mui/material';
 import DatePicker from 'react-datepicker';
-// import Select from "react-select";
+import useGeoLocation from '../useGeoLocation';
+
 
 const Header = () => {
+
+  const location = useGeoLocation();
   
   /* Slider value */
   const [value, setValue] = React.useState(5000);
@@ -52,7 +55,7 @@ const Header = () => {
     <div className="collatz__header section__padding" id="home">
         <div className="collatz__header-content">
           <h1 className="gradient__text">Go Somewhere New</h1>
-          <p>Instantly plan trips within a set budget. </p>
+          <p>Instantly plan trips within a set budget.</p>
           <div className="collatz__header-slider">
             <Typography id="budget-slider" >
                 Budget: {valueLabelFormat(value)}
