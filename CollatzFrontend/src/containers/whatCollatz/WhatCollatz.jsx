@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './whatCollatz.css';
 import { Navbar } from '../../components';
 import lowPolyEarth from "../../assets/lowPolyEarth.png";
+import { Footer } from './../';
 
 const WhatCollatz = () => {
 
@@ -15,7 +16,7 @@ const WhatCollatz = () => {
   }, []);
 
   return (
-    <div className="WhatCollatz">
+      <div className='WhatCollatz'>
         <div className="footer-gradient">
             <div className="gradient__bg">
                 <>
@@ -32,11 +33,12 @@ const WhatCollatz = () => {
                 </div>
                 <div className="collatz__about-image">
                     <img src={lowPolyEarth} alt="lowPolyEarth"
-                     style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
-                     />
+                    style={{ transform: `translateY(${(offsetY * 0.15)}px)`}}
+                    />
                 </div>
             </div>
         </div>
+        <Footer/>
     </div>
   );
 }

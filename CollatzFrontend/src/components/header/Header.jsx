@@ -75,18 +75,6 @@ const Header = () => {
           </div>
           <div className="collatz__header-content_date_input">
             <div className="collatz__header-content_date_input_container">
-              <p>Start Positon</p>
-              <input type="postion" placeholder={location}/>
-              <div className='collatz__StartPosition'>
-              </div>
-            </div>
-            <div className="collatz__header-content_date_input_container">
-              <p>End Positon</p>
-              <input type="postion" />
-              <div className='collatz__EndPosition'>
-              </div>
-            </div>
-            <div className="collatz__header-content_date_input_container">
               <p>Leave</p>
               <div className='collatz__datePicker'>
               <Leavedate />
@@ -95,18 +83,19 @@ const Header = () => {
             <div className="collatz__header-content_date_input_container">
               <p>Return</p>
               <div className='collatz__datePicker'>
-                <Returndate />
+              <Returndate />
               </div>
             </div>
               <div className="collatz__header-content_date_input_container">
               <p># of Travelers</p>
               <input type="number" min = "1"/>
-              <div className='collatz__travelerCountPicker'>
-              </div>
             </div>
           </div>
           <div className="collatz__header-content_input">
-            <input type="text" placeholder="Your Destination"/>
+            <input type="text" placeholder="Traveling From" />
+          </div>
+          <div className="collatz__header-content_input">
+            <input type="text" placeholder="To Destination"/>
             <button type="button" > Go </button>
           </div>
           

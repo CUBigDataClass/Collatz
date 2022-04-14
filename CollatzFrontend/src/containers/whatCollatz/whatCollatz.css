@@ -1,15 +1,11 @@
-.WhatCollatz {
+
+.WhatCollatz{
     margin: 0;
     height: 100%;
     weight: 100%;
     box-sizing: border-box;
     padding: 0;
     scroll-behavior: smooth;
-    
-}
-
-.WhatCollatz .gradient__bg {
-    min-height: 1300px;
 }
 
 p {
