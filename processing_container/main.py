@@ -71,12 +71,12 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
         if attraction_data is None:
             time.sleep(.25)
 
-    print(type(hotel_data))
-    print(hotel_data.keys())
+    #print(type(hotel_data))
+    #print(hotel_data.keys())
 
     end = time.time()
 
-    print(end-start)
+    #print(end-start)
 
     # LIST OF ALL RELEVANT HOTELS
     all_hotels = []
@@ -86,7 +86,12 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
         hotel = hotel_data["hotels"][num]
         all_hotels.append(hotel)   
 
-    airlines = flight_data["carrier"]
+    airlines = flight_data["summary"]["carrier"]
+    airline_keys = {}
+    carriers = flight_data["airline"]
+    for carrier in carriers:
+        airline_keys[carrier["code"]] = carrier["name"] 
+        
 
     # LIST OF ALL RELEVANT FLIGHT OPTIONS
     all_flights = []
@@ -94,7 +99,9 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
 
     for i in range(len(airlines)):
         airline = airlines[i]["airport"][0]["stops"]
+        carrier = airline_keys[airlines[i]["code"]]
         for flight in airline:
+            flight["carrier"] = carrier
             all_flights.append(flight)
 
 
@@ -104,7 +111,7 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
     all_rentals = []
     #
 
-    print(len(rental_dict))
+    #print(len(rental_dict))
 
     for car_num in range(len(rental_dict)):  
         rental = rental_dict[f"result_{car_num}"]
@@ -129,13 +136,15 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
                 flight_cost = float(all_flights[flight_num]["lowestTotalFare"])
                 hotel_cost = float(all_hotels[hotel_num]["ratesSummary"]["minPrice"]) * (end_d - start_d).days
                 rental_cost = float(all_rentals[0]["price_details"]["base"]["total_price"])
+                cur_flight = all_flights[flight_num]
 
                 cost = flight_cost + hotel_cost + rental_cost
-                option = {"hotel": all_hotels[hotel_num], "flight": all_flights[flight_num], 
+                option = {"hotel": all_hotels[hotel_num], "flight": cur_flight, 
                             "rental": all_rentals[rental_num], "total_cost": cost,
                               "restaurant": [restaurant_data["results"][i] for i in random.sample(range(20), k=3)],
                               "attraction": [restaurant_data["results"][i] for i in random.sample(range(20), k=3)]}
-
+                if flight_num == 0:
+                    print(cur_flight)
                 costs.append(cost)
                 options.append(option)
 

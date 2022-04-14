@@ -128,7 +128,8 @@ def get_data(user_id, starting_loc, destination, start_date, end_date, adult_cou
 
     #name = os.environ.get("NAME", "World")
 
-    doc_ref.set(response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["total_trip_summary"])
+    doc_ref.set({"summary": response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["total_trip_summary"],
+                "airline": response["getAirFlightRoundTrip"]["results"]["air_search_rsp"]["airline"]})
 
     return response
 
