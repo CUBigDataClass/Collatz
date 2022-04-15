@@ -29,9 +29,9 @@ const Report = () => {
           <div className="collatz__report-container_2">
               <Article imgUrl={dataset["hotel"]["thumbnailUrl"]} 
               title="Hotels" 
-              articleTitle ={dataset["hotel"]["name"]} 
-              articleInfo = {dataset["total_cost"]}
-              articleInfo2 = {dataset["hotel"]["starRating"]}
+              articleTitle ={dataset["hotel"]["name"]}
+              articleInfo = {'Total cost:' + dataset["total_cost"]}
+              articleInfo2 = {"starRating:" + dataset["hotel"]["starRating"]}
               />
               <Article imgUrl={attractionImage} 
               title="Restaurant" 
@@ -41,7 +41,7 @@ const Report = () => {
               <Article imgUrl={flightImage} 
               title="Flights" 
               articleTitle={dataset["flight"]['carrier']}
-              articleInfo={dataset["flight"]['lowestTotalFare']}
+              articleInfo={'lowest Total Fare:'+ dataset["flight"]['lowestTotalFare']}
               />
               <Article imgUrl={dataset["rental"]['partner']['logo']} 
               title="Rentals" 
