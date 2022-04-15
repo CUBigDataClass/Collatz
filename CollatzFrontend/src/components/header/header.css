@@ -83,6 +83,7 @@
     font-family: var(--font-family);
     display: flex;
     flex-direction: row;
+    
 }
 
 .collatz__header-content_date_input_container {
@@ -90,7 +91,6 @@
 }
 
 .collatz__datePicker{
-    
     background: var(--color-footer);
     border-top: none;
     color: white;

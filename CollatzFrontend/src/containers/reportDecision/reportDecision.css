@@ -50,3 +50,28 @@
 .collatz__reportDecision-btn button:hover{
     transform: scale(0.9);
 }
+
+@media screen and (max-width: 990px) {
+    .collatz__reportDecision {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .collatz__reportDecision-content p {
+
+        font-size: 11px;
+        line-height: 30px;
+    
+    }
+
+    .collatz__reportDecision-content h3 {
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 22px;
+
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+}

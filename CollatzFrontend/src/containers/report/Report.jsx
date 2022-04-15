@@ -15,34 +15,40 @@ const Report = () => {
             Here's Your Report
           </h1>
           <div className="collatz__report-subheading">
-              Recommendation example
+              San Fransico, CA
           </div>
         </div>
         <div className="collatz__report-container">
           <div className="collatz__report-container_1">
-            <Article imgUrl={locationImage} title="Attraction" locationTitle={dataset["attraction"][0]['name']}/>
-              {/*<Article imgUrl={locationImage} title="Attraction" locationTitle={"Attraction Title"}/>*/}
+            <Article imgUrl={attractionImage} 
+            title="Attraction" 
+            articleTitle={dataset["attraction"][0]['name']} 
+            articleInfo={dataset["attraction"][0]['vicinity']}
+            />
           </div>
           <div className="collatz__report-container_2">
-              <Article imgUrl={dataset["hotel"]["thumbnailUrl"]} title="Hotels" locationTitle={dataset["hotel"]["name"]}/>
-            <Article imgUrl={attractionImage} title="Restaurant" locationTitle={dataset["restaurant"][0]['name']}/>
-            <Article imgUrl={flightImage} title="Flights" locationTitle={dataset["flight"]['carrier']}/>
-              <Article imgUrl={dataset["rental"]['partner']['logo']} title="Rentals" locationTitle={dataset["rental"]['partner']['name']}/>
+              <Article imgUrl={dataset["hotel"]["thumbnailUrl"]} 
+              title="Hotels" 
+              articleTitle ={dataset["hotel"]["name"]} 
+              articleInfo = {dataset["total_cost"]}
+              articleInfo2 = {dataset["hotel"]["starRating"]}
+              />
+              <Article imgUrl={attractionImage} 
+              title="Restaurant" 
+              articleTitle={dataset["restaurant"][0]['name']}
+              articleInfo={dataset["restaurant"][0]['vicinity']}
+              />
+              <Article imgUrl={flightImage} 
+              title="Flights" 
+              articleTitle={dataset["flight"]['carrier']}
+              articleInfo={dataset["flight"]['lowestTotalFare']}
+              />
+              <Article imgUrl={dataset["rental"]['partner']['logo']} 
+              title="Rentals" 
+              articleTitle={dataset["rental"]['partner']['name']}
+              articleInfo={dataset["rental"]["pickup"]["location"]}
+              />
           </div>
-            <div>
-                <h1>Detail Information</h1>
-                <p>Attraction</p>
-                <p>Attraction location: {dataset["attraction"][0]['vicinity']}</p>
-                <p>Hotel</p>
-                <p>Total cost: {dataset["total_cost"]}</p>
-                <p>Hotel star: {dataset["hotel"]["starRating"]}</p>
-                <p>Flight </p>
-                <p>Flight lowest TotalFare: {dataset["flight"]['lowestTotalFare']}</p>
-                <p>Rental</p>
-                <p>Pickup location: {dataset["rental"]["pickup"]["location"]}</p>
-                <p>Restaurant</p>
-                <p>Restaurant location: {dataset["restaurant"][0]['vicinity']}</p>
-            </div>
         </div>
     </div>
   )

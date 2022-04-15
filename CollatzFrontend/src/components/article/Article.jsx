@@ -2,7 +2,7 @@ import React from 'react';
 import './article.css';
 import {}  from './import';
 
-const Article = ( { imgUrl, title, locationTitle } ) => {
+const Article = ( { imgUrl, title, articleTitle, articleInfo, articleInfo2 } ) => {
   return (
     <div className="collatz__report-container_article">
       <div className="collatz__report-container_article-image">
@@ -11,7 +11,9 @@ const Article = ( { imgUrl, title, locationTitle } ) => {
       <div className="collatz__report-container_article-content">
         <div>
           <p> {title} </p>
-          <h3> {locationTitle} </h3>
+          <h3> {articleTitle} </h3>
+          <p> {articleInfo} </p>
+          <p> {articleInfo2} </p>
         </div>
       </div>
     </div>
