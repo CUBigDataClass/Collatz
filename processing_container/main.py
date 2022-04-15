@@ -90,18 +90,16 @@ def process_data(user_id, starting_loc, destination, start_date, end_date, adult
     airline_keys = {}
     carriers = flight_data["airline"]
     for carrier in carriers:
-        airline_keys[carrier["code"]] = carrier["name"]
-        airline_keys[carrier["logo"]] = carrier["logo"] 
+        airline_keys[carrier["code"]] = {"name": carrier["name"], "logo": carrier["logo"]}
         
-
     # LIST OF ALL RELEVANT FLIGHT OPTIONS
     all_flights = []
     #
 
     for i in range(len(airlines)):
         airline = airlines[i]["airport"][0]["stops"]
-        carrier = airline_keys[airlines[i]["code"]]
-        logo = airline_keys[airlines[i]["logo"]]
+        carrier = airline_keys[airlines[i]["code"]]["name"]
+        logo = airline_keys[airlines[i]["code"]]["logo"]
         for flight in airline:
             flight["carrier"] = carrier
             flight["logo"] = logo
