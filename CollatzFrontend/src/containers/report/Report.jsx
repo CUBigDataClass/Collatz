@@ -46,7 +46,7 @@ const Report = () => {
               articleTitle2={dataset["restaurant"][2]['name']}
               articleInfo2={dataset["restaurant"][2]['vicinity']}
               />
-              <Article imgUrl={flightImage} 
+              <Article imgUrl={dataset["flight"]['logo']}
               title="Flights" 
               articleTitle={dataset["flight"]['carrier']}
               articleInfo={'lowest Total Fare:'+ dataset["flight"]['lowestTotalFare']}
