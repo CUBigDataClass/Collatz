@@ -41,6 +41,10 @@ const Report = () => {
               title="Restaurant" 
               articleTitle={dataset["restaurant"][0]['name']}
               articleInfo={dataset["restaurant"][0]['vicinity']}
+              articleTitle1={dataset["restaurant"][1]['name']}
+              articleInfo1={dataset["restaurant"][1]['vicinity']}
+              articleTitle2={dataset["restaurant"][2]['name']}
+              articleInfo2={dataset["restaurant"][2]['vicinity']}
               />
               <Article imgUrl={flightImage} 
               title="Flights" 
