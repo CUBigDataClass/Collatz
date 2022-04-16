@@ -22,8 +22,12 @@ const Report = () => {
           <div className="collatz__report-container_1">
             <Article imgUrl={attractionImage} 
             title="Attraction" 
-            articleTitle={dataset["attraction"][0]['name']} 
+            articleTitle={dataset["attraction"][0]['name']}
             articleInfo={dataset["attraction"][0]['vicinity']}
+            articleTitle1={dataset["attraction"][1]['name']}
+            articleInfo1={dataset["attraction"][1]['vicinity']}
+            articleTitle2={dataset["attraction"][2]['name']}
+            articleInfo2={dataset["attraction"][2]['vicinity']}
             />
           </div>
           <div className="collatz__report-container_2">
