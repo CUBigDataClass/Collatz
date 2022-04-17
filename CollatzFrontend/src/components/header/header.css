@@ -141,7 +141,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1382px) {
+@media screen and (max-width: 1682px) {
     .collatz__header {
         flex-direction: column;
     }

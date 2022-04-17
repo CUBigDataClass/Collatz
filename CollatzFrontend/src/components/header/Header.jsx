@@ -9,32 +9,31 @@ const Header = () => {
   const [leaveDate, setLeaveDate] = React.useState();
   const [returnDate, setReturnDate] = React.useState();
   const [travelerCount, setTravelerCount] = React.useState(0);
-
   const[travelFrom, setTravelFrom] = React.useState('');
   const[travelTo, setTravelTo] = React.useState('');
 
-  const getInputValue = (event)=>{
+  const getTravelerCount = (event)=>{
     setTravelerCount(event.target.value) 
   };
 
-  const getInputValue2 = (event)=>{
+  const getTravelFrom = (event)=>{
     setTravelFrom(event.target.value) 
   };
 
-  const getInputValue3 = (event)=>{
+  const getTravelTo = (event)=>{
     setTravelTo(event.target.value) 
   };
 
-  const getInputValue4 = (event)=>{
+  const getLeaveDate = (event)=>{
     setLeaveDate(event.target.value) 
   };
 
-  const getInputValue5 = (event)=>{
+  const getReturnDate = (event)=>{
     setReturnDate(event.target.value) 
   };
 
   const callAPI = (event)=> {
-    //const traveler=getInputValue();
+    //const traveler=getTravelerCount();
     console.log("Button Press")
     console.log(travelerCount)
     console.log(travelFrom)
@@ -42,7 +41,7 @@ const Header = () => {
     console.log(leaveDate)
     console.log(returnDate)
 
-    fetch(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    /*fetch(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)*/
   };
   
   /* Slider value */
@@ -98,21 +97,21 @@ const Header = () => {
                 Leave On
                 <input type="date" 
                 placeholder="Leave On"
-                onChange={getInputValue4}
+                onChange={getLeaveDate}
                 />
               </div>
               <div className="collatz__header-content_input-container">
                 Return By
                 <input type="date" 
                 placeholder="Return On"
-                onChange={getInputValue5}
+                onChange={getReturnDate}
                 />
               </div>
               <div className="collatz__header-content_input-container">
                 # of Travelers
                 <input type="number" 
                 placeholder="Number of Travelers"
-                onChange={getInputValue}
+                onChange={getTravelerCount}
                 min="1"
                 />
               </div>
@@ -120,13 +119,13 @@ const Header = () => {
             <div className="collatz__header-content_input">
               <input type="text" 
               placeholder="Traveling From"
-              onChange={getInputValue2}
+              onChange={getTravelFrom}
               />
             </div>
             <div className="collatz__header-content_input">
               <input type="text" 
               placeholder="Traveling To"
-              onChange={getInputValue3}
+              onChange={getTravelTo}
               />
               <button type="button" onClick={callAPI} > Go </button>
             </div>
