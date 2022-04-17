@@ -7,13 +7,13 @@ import DatePicker from 'react-datepicker';
 
 const Header = () => {
 
+
   const [leaveDate, setLeaveDate] = React.useState();
   const [returnDate, setReturnDate] = React.useState();
   const [travelerCount, setTravelerCount] = React.useState(0);
 
   const[travelFrom, setTravelFrom] = React.useState('');
   const[travelTo, setTravelTo] = React.useState('');
- 
 
   const getInputValue = (event)=>{
     setTravelerCount(event.target.value) 
@@ -44,7 +44,7 @@ const Header = () => {
     console.log(leaveDate)
     console.log(returnDate)
 
-    fetch(`http://34.83.14.233:80/users/hotels/WORKING?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    fetch(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
   };
   
   /* Slider value */
@@ -62,6 +62,7 @@ const Header = () => {
       setValue(newValue);
     }
   };
+
 
   /*Scrolling parallax */
   const [offsetY, setOffsetY] = useState(0); /*offsetY = 0; # pixels scrolled from top of page to bottom*/

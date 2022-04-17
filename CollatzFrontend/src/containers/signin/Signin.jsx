@@ -12,8 +12,8 @@ function Signin() {
     const notLogedin = () => logstate(false);
     const [customerID,setID] = useState(0)
     const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj.googleId);
         setID(res.profileObj.googleId)
+        window.username=res.profileObj.googleId
         login=true;
         if (!login){
             alert(`Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `);
