@@ -53,12 +53,15 @@
 
 @media screen and (max-width: 990px) {
     .collatz__reportDecision {
-        padding: 1.5rem;
-        margin: 2rem 0;
+        margin: 1rem 2rem;
+        border-radius: 1rem;
+        flex-direction: column;
+        padding: 3rem;
+        margin: 2rem 1;
     }
 
     .collatz__reportDecision-content p {
-
+        margin-bottom: 10px;
         font-size: 11px;
         line-height: 30px;
     
@@ -68,7 +71,7 @@
         font-weight: 800;
         font-size: 14px;
         line-height: 22px;
-
+        margin-bottom: 40px;
     }
 }
 

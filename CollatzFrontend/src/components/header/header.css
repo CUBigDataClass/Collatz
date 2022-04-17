@@ -48,7 +48,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 2rem 0 1rem;
+    overflow:none;
 }
 
 .collatz__header-content_input-container input {
@@ -148,6 +148,21 @@
 
     .collatz__header-content {
         margin: 0 0 3rem;
+    }
+
+    .collatz__header-content_input-top-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .collatz__header-content_input-container {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .collatz__header-content_input-container input {
+        font-size: 16px;
     }
 }
 
