@@ -11,13 +11,18 @@ function Signin() {
     const Logedin = () => logstate(true);
     const notLogedin = () => logstate(false);
     const [customerID,setID] = useState(0)
+    const [buttonname,setbuttonname] = useState('Log in')
+    const changeText = (text) => setbuttonname(text);
+
     const onSuccess = (res) => {
         setID(res.profileObj.googleId)
         window.username=0;
         window.username=res.profileObj.googleId
-        login=true;
-        if (!login){
-            alert(`Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `);
+        window.visitor=res.profileObj.name
+        setbuttonname(window.visitor)
+        let login=true;
+        if (login){
+            alert(`Logged in as ${res.profileObj.name}. `);
             Logedin();
         }
 
@@ -39,9 +44,8 @@ function Signin() {
                 clientId={clientId}
                 render = {renderProbs => (
                         <button onClick={renderProbs.onClick} disable={renderProbs.disable}>
-                            Log in
+                            {buttonname}
                         </button>
-
                     )}
                 buttonText="Log in"
                 onSuccess={onSuccess}
