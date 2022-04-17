@@ -35,6 +35,13 @@ form{
     margin-top: 1.5rem;
 }
 
+.collatz__header-content_input-top-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 2rem 0 1rem;
+}
+
 .collatz__header-content_input {
     display: flex;
     

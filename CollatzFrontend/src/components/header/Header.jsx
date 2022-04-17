@@ -2,8 +2,6 @@ import React, { useEffect, useState, } from 'react'
 import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography } from '@mui/material';
-import DatePicker from 'react-datepicker';
-// import Select from "react-select";
 
 const Header = () => {
 
@@ -95,24 +93,26 @@ const Header = () => {
               aria-labelledby="budget-slider"
             />
           </div>
-          <form>
-            <div className="collatz__header-content_input">
-              <input type="date" 
-              placeholder="Leave On"
-              onChange={getInputValue4}
-              />
-            </div>
-            <div className="collatz__header-content_input">
-              <input type="date" 
-              placeholder="Return On"
-              onChange={getInputValue5}
-              />
-            </div>
-            <div className="collatz__header-content_input">
-              <input type="number" 
-              placeholder="Number of Travelers"
-              onChange={getInputValue}
-              />
+            <div className='collatz__header-content_input-top-row'>
+              <div className="collatz__header-content_input">
+                <input type="date" 
+                placeholder="Leave On"
+                onChange={getInputValue4}
+                />
+              </div>
+              <div className="collatz__header-content_input">
+                <input type="date" 
+                placeholder="Return On"
+                onChange={getInputValue5}
+                />
+              </div>
+              <div className="collatz__header-content_input">
+                <input type="number" 
+                placeholder="Number of Travelers"
+                onChange={getInputValue}
+                min="1"
+                />
+              </div>
             </div>
             <div className="collatz__header-content_input">
               <input type="text" 
@@ -127,9 +127,7 @@ const Header = () => {
               />
               <button type="button" onClick={callAPI} > Go </button>
             </div>
-          </form>
-          
-        </div> 
+          </div> 
         <div className="collatz__header-image"
         style={{ transform: `translateY(${(offsetY * 0.1)}px)`}}
         >
