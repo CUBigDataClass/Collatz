@@ -3,16 +3,53 @@ import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography } from '@mui/material';
 import DatePicker from 'react-datepicker';
-import useGeoLocation from '../useGeoLocation';
-
+// import Select from "react-select";
 
 const Header = () => {
 
-  /* User Location */
-  const location = useGeoLocation();
+  const [leaveDate, setLeaveDate] = React.useState();
+  const [returnDate, setReturnDate] = React.useState();
+  const [travelerCount, setTravelerCount] = React.useState(0);
+
+  const[travelFrom, setTravelFrom] = React.useState('');
+  const[travelTo, setTravelTo] = React.useState('');
+ 
+
+  const getInputValue = (event)=>{
+    setTravelerCount(event.target.value) 
+  };
+
+  const getInputValue2 = (event)=>{
+    setTravelFrom(event.target.value) 
+  };
+
+  const getInputValue3 = (event)=>{
+    setTravelTo(event.target.value) 
+  };
+
+  const getInputValue4 = (event)=>{
+    setLeaveDate(event.target.value) 
+  };
+
+  const getInputValue5 = (event)=>{
+    setReturnDate(event.target.value) 
+  };
+
+  const callAPI = (event)=> {
+    //const traveler=getInputValue();
+    console.log("Button Press")
+    console.log(travelerCount)
+    console.log(travelFrom)
+    console.log(travelTo)
+    console.log(leaveDate)
+    console.log(returnDate)
+
+    fetch(`http://34.83.14.233:80/users/hotels/WORKING?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+  };
   
-  /* Budget Slider Value */
+  /* Slider value */
   const [value, setValue] = React.useState(5000);
+
 
   function valueLabelFormat(value) {
     const units = ['$'];
@@ -24,22 +61,6 @@ const Header = () => {
     if (typeof newValue === 'number') {
       setValue(newValue);
     }
-  };
-
-  /*Leave date value */
-  const Leavedate = () => {
-    const [LeaveDate, setLeaveDate] = useState(new Date());
-    return (
-        <DatePicker selected={LeaveDate} onChange={(date) => setLeaveDate(date)} />
-    );
-  };
-
-  /*Return date value */
-  const Returndate = () => {
-    const [ReturnDate, setReturnDate] = useState(new Date());
-    return (
-        <DatePicker selected={ReturnDate} onChange={(date) => setReturnDate(date)} />
-    );
   };
 
   /*Scrolling parallax */
@@ -55,7 +76,7 @@ const Header = () => {
     <div className="collatz__header section__padding" id="home">
         <div className="collatz__header-content">
           <h1 className="gradient__text">Go Somewhere New</h1>
-          <p>Instantly plan trips within a set budget.</p>
+          <p>Instantly plan trips within a set budget. </p>
           <div className="collatz__header-slider">
             <Typography id="budget-slider" >
                 Budget: {valueLabelFormat(value)}
@@ -73,31 +94,39 @@ const Header = () => {
               aria-labelledby="budget-slider"
             />
           </div>
-          <div className="collatz__header-content_date_input">
-            <div className="collatz__header-content_date_input_container">
-              <p>Leave</p>
-              <div className='collatz__datePicker'>
-              <Leavedate />
-              </div>
+          <form>
+            <div className="collatz__header-content_input">
+              <input type="date" 
+              placeholder="Leave On"
+              onChange={getInputValue4}
+              />
             </div>
-            <div className="collatz__header-content_date_input_container">
-              <p>Return</p>
-              <div className='collatz__datePicker'>
-              <Returndate />
-              </div>
+            <div className="collatz__header-content_input">
+              <input type="date" 
+              placeholder="Return On"
+              onChange={getInputValue5}
+              />
             </div>
-              <div className="collatz__header-content_date_input_container">
-              <p># of Travelers</p>
-              <input type="number" min = "1"/>
+            <div className="collatz__header-content_input">
+              <input type="number" 
+              placeholder="Number of Travelers"
+              onChange={getInputValue}
+              />
             </div>
-          </div>
-          <div className="collatz__header-content_input">
-            <input type="text" placeholder="Traveling From" />
-          </div>
-          <div className="collatz__header-content_input">
-            <input type="text" placeholder="To Destination"/>
-            <button type="button" > Go </button>
-          </div>
+            <div className="collatz__header-content_input">
+              <input type="text" 
+              placeholder="Traveling From"
+              onChange={getInputValue2}
+              />
+            </div>
+            <div className="collatz__header-content_input">
+              <input type="text" 
+              placeholder="Traveling To"
+              onChange={getInputValue3}
+              />
+              <button type="button" onClick={callAPI} > Go </button>
+            </div>
+          </form>
           
         </div> 
         <div className="collatz__header-image"

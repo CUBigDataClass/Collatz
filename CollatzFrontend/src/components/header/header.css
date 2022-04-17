@@ -4,8 +4,12 @@
     padding: 4rem 6rem;
 }
 
+form{
+    width: 100%;
+}
+
 .collatz__header-content {
-    flex: 1;
+    flex: 0.85;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -76,25 +80,6 @@
     outline: none;
     border: none;
     padding: 0 1rem;
-}
-
-
-.collatz__header-content_date_input {
-    font-family: var(--font-family);
-    display: flex;
-    flex-direction: row;
-    
-}
-
-.collatz__header-content_date_input_container {
-    margin-right: 1rem;
-}
-
-.collatz__datePicker{
-    background: var(--color-footer);
-    border-top: none;
-    color: white;
-    
 }
 
 .collatz__header-image {
