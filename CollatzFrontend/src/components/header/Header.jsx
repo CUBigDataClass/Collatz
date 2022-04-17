@@ -94,19 +94,22 @@ const Header = () => {
             />
           </div>
             <div className='collatz__header-content_input-top-row'>
-              <div className="collatz__header-content_input">
+              <div className="collatz__header-content_input-container">
+                Leave On
                 <input type="date" 
                 placeholder="Leave On"
                 onChange={getInputValue4}
                 />
               </div>
-              <div className="collatz__header-content_input">
+              <div className="collatz__header-content_input-container">
+                Return By
                 <input type="date" 
                 placeholder="Return On"
                 onChange={getInputValue5}
                 />
               </div>
-              <div className="collatz__header-content_input">
+              <div className="collatz__header-content_input-container">
+                # of Travelers
                 <input type="number" 
                 placeholder="Number of Travelers"
                 onChange={getInputValue}
