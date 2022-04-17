@@ -63,22 +63,6 @@ const Header = () => {
     }
   };
 
-  /*Leave date value */
-  const Leavedate = () => {
-    const [LeaveDate, setLeaveDate] = useState(new Date());
-    return (
-        <DatePicker selected={LeaveDate} onChange={(date) => setLeaveDate(date)} />
-    );
-  };
-
-  /*Return date value */
-  const Returndate = () => {
-    const [ReturnDate, setReturnDate] = useState(new Date());
-    return (
-        <DatePicker selected={ReturnDate} onChange={(date) => setReturnDate(date)} />
-    );
-  };
-
   /*Scrolling parallax */
   const [offsetY, setOffsetY] = useState(0); /*offsetY = 0; # pixels scrolled from top of page to bottom*/
   const handleScroll = () => setOffsetY(window.pageYOffset);
@@ -109,20 +93,6 @@ const Header = () => {
               onChange={handleChange}
               aria-labelledby="budget-slider"
             />
-          </div>
-          <div className="collatz__header-content_date_input">
-            <div className="collatz__header-content_date_input_container">
-              <p>Leave</p>
-              <div className='collatz__datePicker'>
-              <Leavedate />
-              </div>
-            </div>
-            <div className="collatz__header-content_date_input_container">
-              <p>Return</p>
-              <div className='collatz__datePicker'>
-                <Returndate />
-              </div>
-            </div>
           </div>
           <form>
             <div className="collatz__header-content_input">
