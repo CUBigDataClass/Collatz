@@ -5,15 +5,15 @@ import { GoogleLogin } from 'react-google-login';
 
 const clientId = '278153530350-ctpnhc5eaa2s5jsk90u9riajg6u7qfao.apps.googleusercontent.com';
 
+
 function Signin() {
-    const customerID = '';
     const [login,logstate] = useState(false);
     const Logedin = () => logstate(true);
     const notLogedin = () => logstate(false);
-    
+    const [customerID,setID] = useState(0)
     const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj);
-        customerID = res.profileObj.googleId
+        console.log('Login Success: currentUser:', res.profileObj.googleId);
+        setID(res.profileObj.googleId)
         login=true;
         if (!login){
             alert(`Logged in successfully. \nHello ${res.profileObj.name}, Welcome to Collatz!. `);
@@ -48,7 +48,6 @@ function Signin() {
                 cookiePolicy={'single_host_origin'}
                 style={{ marginTop: '100px' }}
                 isSignedIn={true}
-                customerID
             />
         </div>
     );
