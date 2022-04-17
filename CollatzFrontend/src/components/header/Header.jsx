@@ -32,6 +32,16 @@ const Header = () => {
     setReturnDate(event.target.value) 
   };
 
+  async function getData(url) {
+    const response = await fetch(url, {
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    return response.json();
+  }
+
   const callAPI = (event)=> {
     //const traveler=getTravelerCount();
     console.log("Button Press")
@@ -41,8 +51,20 @@ const Header = () => {
     console.log(leaveDate)
     console.log(returnDate)
 
-    /*fetch(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)*/
+    getData(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("hotels"))
+    getData(`http://35.190.178.224:80/users/flights/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("flights"))
+    getData(`http://35.199.105.57:80/users/places/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("places"))
+    getData(`http://34.176.192.110:80/users/rentals/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("rentals"))
+    getData(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(data => console.log(data))
+      .then(console.log("Finished"))
+
   };
+
   
   /* Slider value */
   const [value, setValue] = React.useState(5000);

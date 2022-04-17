@@ -13,6 +13,7 @@ function Signin() {
     const [customerID,setID] = useState(0)
     const onSuccess = (res) => {
         setID(res.profileObj.googleId)
+        window.username=0;
         window.username=res.profileObj.googleId
         login=true;
         if (!login){

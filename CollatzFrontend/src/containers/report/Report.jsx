@@ -4,8 +4,8 @@ import { locationImage, hotelImage, flightImage, rentalImage, attractionImage } 
 import './report.css';
 import data from './example_recs.json';
 
-const Report = () => {
 
+const Report = () => {
     const dataset = data["recs"][0]
 
   return (
