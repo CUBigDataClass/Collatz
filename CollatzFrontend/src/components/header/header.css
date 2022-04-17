@@ -37,9 +37,7 @@
     width: 100%;
     margin: 2rem 0 1rem;
 }
-::-webkit-input-placeholder {
-    color: rgb(111, 111, 111);
-}
+
 .collatz__header-content_input-container {
     font-family: var(--font-family);
     font-style: normal;
