@@ -14,9 +14,8 @@ const ReportDecision = () => {
   window.clickCount = 0;
 
   const setReportCountPositive = () => {
-    window.clickCount++;
+    window.clickCount+=1;
     console.log(window.clickCount);
-      
   }
 
   return (

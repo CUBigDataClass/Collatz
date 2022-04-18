@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef} from 'react'
 
 import { Footer, Report, Header, ReportDecision } from './containers';
 import { Navbar } from './components';
@@ -12,8 +12,7 @@ const App = () => {
           <Navbar />
           <Header />
         </div>
-        <Report />
-        <ReportDecision />
+        <Report/>
         <Footer />
         </div>
       </div>

@@ -1,10 +1,9 @@
-import React, { useEffect, useState, } from 'react'
+import React, { useEffect, useState, useRef} from 'react'
 import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography } from '@mui/material';
 
 const Header = () => {
-
 
   const [leaveDate, setLeaveDate] = React.useState();
   const [returnDate, setReturnDate] = React.useState();
@@ -45,24 +44,26 @@ const Header = () => {
     console.log(travelerCount)
     console.log(travelFrom)
     console.log(travelTo)
+    window.travelToLocation = travelTo
     console.log(leaveDate)
     console.log(returnDate)
 
-    // getData(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-    //   .then(console.log("hotels"))
-    // getData(`http://35.190.178.224:80/users/flights/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-    //   .then(console.log("flights"))
-    // getData(`http://35.199.105.57:80/users/places/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-    //   .then(console.log("places"))
-    // getData(`http://34.176.192.110:80/users/rentals/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-    //   .then(console.log("rentals"))
-    // getData(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-    //   .then(data => console.log(data))
-    //   .then(console.log("Finished"))
+    fetch(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("hotels"))
+    fetch(`http://35.190.178.224:80/users/flights/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("flights"))
+    fetch(`http://35.199.105.57:80/users/places/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("places"))
+    fetch(`http://34.176.192.110:80/users/rentals/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(console.log("rentals"))
+    fetch(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+      .then(data => console.log(data))
     fetch(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
         .then(response => response.json())
         .then(data => getData(data))
         .then(console.log("Finished"))
+
+    window.scrollBy(0,850)
   };
 
   
@@ -132,7 +133,7 @@ const Header = () => {
               <div className="collatz__header-content_input-container">
                 # of Travelers
                 <input type="number" 
-                placeholder="Number of Travelers"
+                placeholder="# of Travelers"
                 onChange={getTravelerCount}
                 min="1"
                 />

@@ -140,11 +140,17 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1682px) {
+@media screen and (max-width: 1300px) {
+    .collatz__header-image img {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 1200px) {
     .collatz__header {
         flex-direction: column;
     }
-
+    
     .collatz__header-content {
         margin: 0 0 3rem;
     }
