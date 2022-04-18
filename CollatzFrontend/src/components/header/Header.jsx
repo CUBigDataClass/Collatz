@@ -11,6 +11,7 @@ const Header = () => {
   const [travelerCount, setTravelerCount] = React.useState(0);
   const[travelFrom, setTravelFrom] = React.useState('');
   const[travelTo, setTravelTo] = React.useState('');
+  const[jsondata,setjsondata] = React.useState('');
 
   const getTravelerCount = (event)=>{
     setTravelerCount(event.target.value) 
@@ -32,14 +33,10 @@ const Header = () => {
     setReturnDate(event.target.value) 
   };
 
-  async function getData(url) {
-    const response = await fetch(url, {
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    return response.json();
+  async function getData(data) {
+    setjsondata(data)
+    window.recs = jsondata
+    //console.log(jsondata)
   }
 
   const callAPI = (event)=> {
@@ -51,18 +48,21 @@ const Header = () => {
     console.log(leaveDate)
     console.log(returnDate)
 
-    getData(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-      .then(console.log("hotels"))
-    getData(`http://35.190.178.224:80/users/flights/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-      .then(console.log("flights"))
-    getData(`http://35.199.105.57:80/users/places/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-      .then(console.log("places"))
-    getData(`http://34.176.192.110:80/users/rentals/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-      .then(console.log("rentals"))
-    getData(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
-      .then(data => console.log(data))
-      .then(console.log("Finished"))
-
+    // getData(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    //   .then(console.log("hotels"))
+    // getData(`http://35.190.178.224:80/users/flights/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    //   .then(console.log("flights"))
+    // getData(`http://35.199.105.57:80/users/places/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    //   .then(console.log("places"))
+    // getData(`http://34.176.192.110:80/users/rentals/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    //   .then(console.log("rentals"))
+    // getData(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+    //   .then(data => console.log(data))
+    //   .then(console.log("Finished"))
+    fetch(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
+        .then(response => response.json())
+        .then(data => getData(data))
+        .then(console.log("Finished"))
   };
 
   
@@ -150,6 +150,7 @@ const Header = () => {
               onChange={getTravelTo}
               />
               <button type="button" onClick={callAPI} > Go </button>
+              {/*<Download/>*/}
             </div>
           </div> 
         <div className="collatz__header-image"
