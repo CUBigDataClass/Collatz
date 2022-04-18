@@ -2,6 +2,7 @@ import React, { useEffect, useState, } from 'react'
 import './header.css';
 import lowPolyEarth from '../../assets/lowPolyEarth.png';
 import { Slider, Typography } from '@mui/material';
+import { Report, ReportDecision  } from '../../containers'
 
 const Header = () => {
 
@@ -36,7 +37,7 @@ const Header = () => {
   async function getData(data) {
     setjsondata(data)
     window.recs = jsondata
-    //console.log(jsondata)
+    //console.log(window.recs)
   }
 
   const callAPI = (event)=> {
@@ -47,7 +48,7 @@ const Header = () => {
     console.log(travelTo)
     console.log(leaveDate)
     console.log(returnDate)
-
+    console.log(`http://35.202.91.190:80/users/recs/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
     // getData(`http://34.83.14.233:80/users/hotels/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)
     //   .then(console.log("hotels"))
     // getData(`http://35.190.178.224:80/users/flights/${window.username}?starting_loc=${travelFrom}&destination=${travelTo}&start_date=${leaveDate}&end_date=${returnDate}&adult_count=${travelerCount}&child_count=0`)

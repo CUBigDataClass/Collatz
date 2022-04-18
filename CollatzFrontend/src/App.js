@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Footer, Report, Header, ReportDecision } from './containers';
+import { Footer, Header, Report, ReportDecision } from './containers';
 import { Navbar } from './components';
 import './App.css'; 
 
