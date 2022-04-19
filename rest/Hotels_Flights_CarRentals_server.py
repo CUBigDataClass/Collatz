@@ -1,4 +1,14 @@
-from flask import Flask
+get_ipython().system('pip install -U airportsdata')
+get_ipython().system('pip install geopy')
+
+import requests,json
+from flask import Flask,request, jsonify
+from static.constants import *
+import airportsdata
+import pandas as pd
+import numpy as np
+import math
+from geopy.geocoders import Nominatim
 
 app = Flask(__name__)
 
@@ -27,7 +37,31 @@ end_date = "2022-06-17"
 adult_count = 1
 child_count = 0
 
-  
+def getBestAirports(location, airports_df, nbest=3):
+    geocoder = Nominatim(user_agent="GetLoc")
+    getLocation = geocoder.geocode(location)
+
+    lat = getLocation.latitude
+    long = getLocation.longitude
+
+    location = geocoder.reverse((lat, long))
+
+    # print(location.raw["latitude"])
+
+    city = location.raw["address"]["city"]
+    if "state" in location.raw["address"].keys():
+        state = location.raw["address"]["state"]
+    elif "region" in location.raw["address"].keys():
+        state = location.raw["address"]["region"]
+
+    df = airports_df.copy()
+
+    df["dist"] = np.sqrt((airports_df["lat"] - lat) ** 2 + (airports_df["long"] - long) ** 2)
+    best_airports = df.nsmallest(nbest, columns=["dist"])
+    best_airports.reset_index(inplace=True)
+
+    return best_airports, city, state
+
 # start flask app
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
