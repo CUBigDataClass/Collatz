@@ -62,6 +62,26 @@ def getBestAirports(location, airports_df, nbest=3):
 
     return best_airports, city, state
 
+
+@app.route('/hotels')
+def hotel_location():
+    querystring = {"search_type": "HOTEL", "name": f"{dest_city}, {dest_state}"}
+
+    response = requests.request("GET", hotel_names_url, headers=headers, params=querystring)
+
+#     return response.text
+
+
+    dictionary = json.loads(response.text)
+    details = []
+    city_id = dictionary[0]["cityID"]
+    a={}
+    a['CITY_ID'] = city_id
+
+    details.append(a)
+    return jsonify(details)
+
+
 # start flask app
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
