@@ -1,0 +1,21 @@
+##
+## You provide this
+##
+# apiVersion: 'v1'
+# services:
+#   hotels_flights_carrentals-service:
+#     image: hotels_flights_carrentals-rest:v1
+#     build: ./hotels_flights_carrentals  # path is relative to docker-compose.yml localtion
+#     volumes:
+#        - ./observatory:/usr/src/app # mount point
+#     ports:
+#        - "5000:5000"  # host:container
+        
+version: 'v1'
+services:
+  hotels_flights_carrentals-service:
+    image: hotels_flights_carrentals-rest:v1
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
