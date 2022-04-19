@@ -1,0 +1,12 @@
+# To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
+
+gunicorn==20.1.0
+requests==2.26.0
+airportsdata==20220107
+geopy==2.2.0
+google-cloud-firestore==2.4.0
+pandas==1.4.2
+numpy==1.22.3
+fastapi==0.75.1
+uvicorn==0.17.6
+more-itertools==8.12.0

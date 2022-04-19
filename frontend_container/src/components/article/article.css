@@ -1,0 +1,53 @@
+.collatz__report-container_article {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-footer);
+}
+
+.collatz__report-container_article-image {
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--color-footer);
+}
+
+.collatz__report-container_article-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.collatz__report-container_article-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 1rem 1.5rem;
+    height: 100%;
+}
+
+.collatz__report-container_article-content p {
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 11.649px;
+    line-height: 35px;
+    color: #FFFFFF;
+}
+
+.collatz__report-container_article-content h3 {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 25.11px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 550px ) {
+    .collatz__report-container_article-content h3 {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}

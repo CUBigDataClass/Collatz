@@ -1,0 +1,9 @@
+.collatz__footer {
+    background: var(--gradient-bg);
+    max-height: 150px;
+}
+
+.collatz__footer-logo img{
+    width: 250px;
+    height: 60px;
+}

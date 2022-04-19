@@ -1,0 +1,164 @@
+.collatz__report {
+    display: flex;
+    flex-direction: column;
+}
+
+.collatz__report-heading {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.collatz__report-heading {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 75px;
+    letter-spacing:  -0.05em;
+}
+
+.collatz__report-subheading {
+    color: white;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 100px;
+    letter-spacing:  -0.04em;
+}
+
+.collatz__report-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.collatz__report-container_1 {
+    flex: 0.75;
+    margin-right: 2rem;
+}
+
+.collatz__report-container_2 {
+    flex: 1;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+@media screen and (max-width: 990px) {
+    .collatz__report-container{
+        flex-direction: column;
+    }
+
+    .collatz__report-container_1 {
+        margin: 2rem 0;
+    }
+
+    .collatz__report-container_ .collatz__article-container_article {
+        width: 48%;
+    }
+
+    .collatz__report-container_.collatz__article-container_article-img {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .collatz__report-container_2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .collatz__report-container_ .collatz__article-container_article {
+        width: 100%;
+    }
+
+    .collatz__report-heading h1 {
+        font-size: 46px;
+        line-height: 52px;
+    }
+}
+
+
+/* hello */
+
+.collatz__reportDecision {
+    border: 1px solid white;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    padding: 2.5rem;
+    margin: 1rem 6rem;
+    border-radius: 1rem;
+    background: var(--gradient-bar);
+    margin-bottom: 100px;
+}
+
+.collatz__reportDecision-content p {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    color: #0E0E0E;
+
+}
+
+.collatz__reportDecision-content h3 {
+    font-family: var(--font-family);
+    font-weight: 1000;
+    font-size: 27px;
+    line-height: 45px;
+    color: #0E0E0E;
+}
+
+.collatz__reportDecision-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+    background: transparent;
+}
+
+.collatz__reportDecision-btn button{
+    margin: 0rem 3rem;
+    border: none;
+    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.collatz__reportDecision-btn button:hover{
+    transform: scale(0.9);
+}
+
+@media screen and (max-width: 990px) {
+    .collatz__reportDecision {
+        margin: 1rem 2rem;
+        border-radius: 1rem;
+        flex-direction: column;
+        padding: 3rem;
+        margin: 1rem 2;
+    }
+
+    .collatz__reportDecision-content p {
+        margin-bottom: 10px;
+        font-size: 11px;
+        line-height: 30px;
+    
+    }
+
+    .collatz__reportDecision-content h3 {
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+}
