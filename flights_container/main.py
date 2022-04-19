@@ -81,7 +81,7 @@ def get_data(user_id, starting_loc, destination, start_date, end_date, adult_cou
     home_airport_code = home_best_airports.loc[0]["code"]
     dest_airport_code = dest_best_airports.loc[0]["code"]
 
-    key = "774b07103bmsh7f4b47f00895eafp1ff206jsn58ad64733028"
+    key = ""
 
     url = "https://priceline-com-provider.p.rapidapi.com/v2/flight/roundTrip"
 
