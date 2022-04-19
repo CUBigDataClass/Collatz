@@ -19,8 +19,8 @@ from more_itertools import sort_together
 from google.cloud import firestore
 from fastapi import FastAPI
 
-rapid_api_key = "774b07103bmsh7f4b47f00895eafp1ff206jsn58ad64733028"
-google_api_key = "AIzaSyBhWXbqyQM2rZ3WBKcPqIfJF9W04JITeQo"
+rapid_api_key = ""
+google_api_key = ""
 
 
 app = FastAPI()
