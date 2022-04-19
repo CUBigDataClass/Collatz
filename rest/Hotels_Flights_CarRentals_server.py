@@ -62,6 +62,11 @@ def getBestAirports(location, airports_df, nbest=3):
 
     return best_airports, city, state
 
+home_best_airports, home_city, home_state = getBestAirports(starting_loc, airports_df)
+dest_best_airports, dest_city, dest_state = getBestAirports(destination, airports_df)
+
+home_airport_code = home_best_airports.loc[0]["code"]
+dest_airport_code = dest_best_airports.loc[0]["code"]
 
 @app.route('/hotels')
 def hotel_location():
