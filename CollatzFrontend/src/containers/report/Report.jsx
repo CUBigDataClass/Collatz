@@ -85,7 +85,6 @@ const Report = () => {
               articleTitle={dataset["rental"]['partner']['name']}
               articleInfo={dataset["rental"]["pickup"]["location"]}
               />
-              <button type="button" onClick={uploaddata}>Update </button>
             </div>
           </div>
         <div className ="collatz__reportDecision">
@@ -94,6 +93,7 @@ const Report = () => {
             <h3> Like it to save it to your profile, or generate a new one.</h3>
         </div>
         <div className="collatz__reportDecision-btn">
+            <button type="button" onClick={uploaddata}> Update </button>
             <button type="button" onClick={getCount}>  <FaCheck size="50px" /> </button>
             <button type="button" onClick={getCount}>  <ImCross size="40px" /> </button>
         </div>
