@@ -4,19 +4,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Hotels_Flights_CarRentals_server
+  name: Hotels_Flights_CarRentals-server
   labels:
-    app: Hotels_Flights_CarRentals_server
+    app: Hotels_Flights_CarRentals-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Hotels_Flights_CarRentals_server
+      app: Hotels_Flights_CarRentals-server
   template:
     metadata:
       labels:
-        app: Hotels_Flights_CarRentals_server
+        app: Hotels_Flights_CarRentals-server
     spec:
       containers:
-      - name: Hotels_Flights_CarRentals_server
-        image: sushravya724/Hotels_Flights_CarRentals_server:v1
+      - name: Hotels_Flights_CarRentals-server
+        image: sushravya724/Hotels_Flights_CarRentals-server:v1
