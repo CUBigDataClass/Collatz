@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: Hotels_Flights_CarRentals-rest
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: Hotels_Flights_CarRentals-rest
+            port:
+              number: 8000
+        backend:
+          service:
+            name: Hotels_Flights_CarRentals-rest
+            port:
+              number: 8090
