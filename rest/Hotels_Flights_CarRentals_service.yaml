@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: Hotels_Flights_CarRentals_server
+  name: Hotels_Flights_CarRentals-server
   labels:
-    app: Hotels_Flights_CarRentals_server
+    app: Hotels_Flights_CarRentals-server
 spec:
   ports:
   -  port: 5000
      targetPort: 5000
   selector:
-    app: Hotels_Flights_CarRentals_server
+    app: Hotels_Flights_CarRentals-server
