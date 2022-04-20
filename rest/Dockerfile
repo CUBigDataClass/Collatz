@@ -1,8 +1,8 @@
 FROM python:3.8
 
-# ADD Hotels_Flights_CarRentals_server.py /
+# ADD Hotels_Flights_CarRentals-server.py /
 
-RUN pip3 install --upgrade flask 
+RUN pip3 install --upgrade jsonpickle requests flask airportsdata pandas numpy geopy
 
 CMD mkdir /app
 WORKDIR /app
@@ -10,4 +10,4 @@ WORKDIR /app
 COPY . /app
 
 EXPOSE 5000
-CMD cd /app && python3 Hotels_Flights_CarRentals_server.py
+CMD cd /app && python3 Hotels_Flights_CarRentals-server.py
