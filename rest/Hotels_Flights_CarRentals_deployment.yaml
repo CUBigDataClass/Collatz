@@ -1,0 +1,22 @@
+##
+## You provide this
+##
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Hotels_Flights_CarRentals_server
+  labels:
+    app: Hotels_Flights_CarRentals_server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Hotels_Flights_CarRentals_server
+  template:
+    metadata:
+      labels:
+        app: Hotels_Flights_CarRentals_server
+    spec:
+      containers:
+      - name: Hotels_Flights_CarRentals_server
+        image: sushravya724/Hotels_Flights_CarRentals_server:v1
